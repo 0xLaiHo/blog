@@ -11,6 +11,7 @@ import { DefaultCatchBoundary } from '~/components/DefaultCatchBoundary'
 import { NotFound } from '~/components/NotFound'
 import { TopNav, Footer } from '~/components/TopNav'
 import { useProgress, useCardGlow } from '~/hooks/effects'
+import { BASE_URL, SITE_NAME, DEFAULT_OG } from '~/data/site'
 import appCss from '~/styles/app.css?url'
 
 export const Route = createRootRoute({
@@ -24,9 +25,17 @@ export const Route = createRootRoute({
         content:
           'mactavish 的个人博客。赛博朋克美学、乌托邦想象、代码与日常的回声。',
       },
+      { property: 'og:site_name', content: SITE_NAME },
+      { property: 'og:title', content: 'NEON//UTOPIA — 在霓虹里校准乌托邦' },
+      { property: 'og:description', content: 'mactavish 的个人博客。赛博朋克美学、乌托邦想象、代码与日常的回声。' },
+      { property: 'og:type', content: 'website' },
+      { property: 'og:url', content: BASE_URL },
+      { property: 'og:image', content: `${BASE_URL}${DEFAULT_OG}` },
+      { name: 'twitter:card', content: 'summary' },
     ],
     links: [
       { rel: 'stylesheet', href: appCss },
+      { rel: 'canonical', href: BASE_URL },
       {
         rel: 'alternate',
         type: 'application/rss+xml',

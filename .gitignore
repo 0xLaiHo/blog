@@ -3,5 +3,6 @@ dist/
 .output/
 .wrangler/
 .tanstack/
+src/routeTree.gen.ts
 *.log
 .DS_Store

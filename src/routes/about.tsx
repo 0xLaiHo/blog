@@ -1,7 +1,15 @@
 import { createFileRoute, Link } from '@tanstack/react-router'
+import { BASE_URL } from '~/data/site'
 
 export const Route = createFileRoute('/about')({
-  head: () => ({ meta: [{ title: '关于 // NEON//UTOPIA' }] }),
+  head: () => ({
+    meta: [
+      { title: '关于 // NEON//UTOPIA' },
+      { property: 'og:title', content: '关于 // NEON//UTOPIA' },
+      { property: 'og:url', content: `${BASE_URL}/about` },
+    ],
+    links: [{ rel: 'canonical', href: `${BASE_URL}/about` }],
+  }),
   component: AboutComponent,
 })
 

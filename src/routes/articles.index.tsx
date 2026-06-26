@@ -1,8 +1,17 @@
-import { createFileRoute, Link } from '@tanstack/react-router'
+import { createFileRoute } from '@tanstack/react-router'
 import { ARTICLES } from '~/data/articles'
+import { BASE_URL } from '~/data/site'
+import { ArticleGrid } from '~/components/ArticleGrid'
 
 export const Route = createFileRoute('/articles/')({
-  head: () => ({ meta: [{ title: '文章 // NEON//UTOPIA' }] }),
+  head: () => ({
+    meta: [
+      { title: '文章 // NEON//UTOPIA' },
+      { property: 'og:title', content: '文章 // NEON//UTOPIA' },
+      { property: 'og:url', content: `${BASE_URL}/articles` },
+    ],
+    links: [{ rel: 'canonical', href: `${BASE_URL}/articles` }],
+  }),
   component: ArticlesComponent,
 })
 
@@ -13,22 +22,7 @@ function ArticlesComponent() {
         <div className="section-head">
           <div className="section-title reveal"><span className="idx">02 //</span> 全部文章</div>
         </div>
-        <div className="grid grid-3">
-          {ARTICLES.map((a, i) => (
-            <Link
-              key={a.slug}
-              to="/articles/$slug"
-              params={{ slug: a.slug }}
-              className="card reveal"
-              data-delay={(i % 5) + 1}
-            >
-              <div className="card-cat">{a.cat}</div>
-              <div className="card-title">{a.title}</div>
-              <div className="card-excerpt">{a.excerpt}</div>
-              <div className="card-foot"><span>{a.date}</span><span className="read">{a.read} min →</span></div>
-            </Link>
-          ))}
-        </div>
+        <ArticleGrid articles={ARTICLES} />
       </section>
     </div>
   )

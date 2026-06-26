@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#070710"/>
+      <stop offset="1" stop-color="#0c0c1a"/>
+    </linearGradient>
+    <radialGradient id="glow-v" cx="0.85" cy="0" r="0.6">
+      <stop offset="0" stop-color="#a06bff" stop-opacity="0.4"/>
+      <stop offset="1" stop-color="#a06bff" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glow-c" cx="0.1" cy="1" r="0.5">
+      <stop offset="0" stop-color="#19ffe4" stop-opacity="0.22"/>
+      <stop offset="1" stop-color="#19ffe4" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="wordmark" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#19ffe4"/>
+      <stop offset="0.5" stop-color="#a06bff"/>
+      <stop offset="1" stop-color="#ff2e9a"/>
+    </linearGradient>
+    <pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse">
+      <path d="M48 0H0V48" fill="none" stroke="#5a6acc" stroke-opacity="0.10" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#grid)"/>
+  <rect width="1200" height="630" fill="url(#glow-v)"/>
+  <rect width="1200" height="630" fill="url(#glow-c)"/>
+
+  <!-- brand wordmark -->
+  <text x="90" y="300" font-family="'Space Grotesk','Helvetica Neue',sans-serif" font-size="150" font-weight="700" letter-spacing="2">
+    <tspan fill="#19ffe4">NEON</tspan><tspan fill="#5d6596">//</tspan><tspan fill="#ff2e9a">UTOPIA</tspan>
+  </text>
+
+  <!-- tagline -->
+  <text x="92" y="370" font-family="'JetBrains Mono','Menlo',monospace" font-size="28" fill="#b4bce6" opacity="0.85">
+    在霓虹里校准乌托邦 — mactavish 的个人博客
+  </text>
+
+  <!-- corner glyph -->
+  <text x="1110" y="560" text-anchor="end" font-family="'JetBrains Mono',monospace" font-size="20" fill="#19ffe4" opacity="0.8">
+    ● TRANSMITTING · www.devlaiho.cc
+  </text>
+
+  <!-- accent lines -->
+  <rect x="90" y="225" width="80" height="3" fill="url(#wordmark)"/>
+</svg>

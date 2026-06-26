@@ -1,8 +1,16 @@
 import { createFileRoute, Link } from '@tanstack/react-router'
 import { ARTICLES } from '~/data/articles'
+import { BASE_URL } from '~/data/site'
 
 export const Route = createFileRoute('/archive')({
-  head: () => ({ meta: [{ title: '归档 // NEON//UTOPIA' }] }),
+  head: () => ({
+    meta: [
+      { title: '归档 // NEON//UTOPIA' },
+      { property: 'og:title', content: '归档 // NEON//UTOPIA' },
+      { property: 'og:url', content: `${BASE_URL}/archive` },
+    ],
+    links: [{ rel: 'canonical', href: `${BASE_URL}/archive` }],
+  }),
   component: ArchiveComponent,
 })
 

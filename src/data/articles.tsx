@@ -8,6 +8,8 @@ export type ArticleMeta = {
   read: number
   excerpt: string
   tags: string[]
+  cover?: string
+  draft?: boolean
 }
 
 type MdxModule = {
@@ -21,8 +23,12 @@ const modules = import.meta.glob('../content/*.mdx', { eager: true }) as Record<
   MdxModule
 >
 
-export const ARTICLES: ArticleMeta[] = Object.entries(modules)
-  .map(([, m]) => m.meta)
+// Production hides drafts; dev keeps them so you can preview.
+const isDev = import.meta.env.DEV
+
+export const ARTICLES: ArticleMeta[] = Object.values(modules)
+  .map((m) => m.meta)
+  .filter((m) => isDev || !m.draft)
   .sort((a, b) => (a.date < b.date ? 1 : -1))
 
 export const TAGS = TAG_COUNTS(ARTICLES)
